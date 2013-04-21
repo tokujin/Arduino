@@ -18,6 +18,7 @@
 
 #define SERVO_CHANNEL   0
 #define DELAY_TIME      20
+#define NUM_TLCS  7 // 7 daisy chain-nori
 
 void setup()
 {
