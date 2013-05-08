@@ -4,7 +4,7 @@
 #include "Tlc5940.h"
 #include "tlc_servos.h"
 
-int numberOfServos = 3; //how many servos on the chain?
+int numberOfServos = 1; //how many servos on the chain?
 int r[3];
 
 void setup(){
@@ -12,15 +12,13 @@ void setup(){
 }
 
 void loop(){
-  r[0] = random(100)%3;
-  r[1] = random(200)%3;
-  r[2] = random(300)%3;
-
+  r[0] = 1;
+  
   //loop through all the servos and move one at a time to 180º
 
     for (int angle = 0; angle < 180; angle+= 10) {
       for(int k=0; k<numberOfServos; k++){
-        tlc_setServo(r[k], angle);
+        tlc_setServo(0, angle);
       }
         Tlc.update();
         delay(20);
@@ -34,7 +32,7 @@ void loop(){
 
     for (int angle = 180; angle >= 0; angle-= 10) {
       for(int k=0; k<numberOfServos; k++){
-        tlc_setServo(r[k], angle);
+        tlc_setServo(0, angle);
       }
         Tlc.update();
         delay(20);
